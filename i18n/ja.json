@@ -1,0 +1,17 @@
+{
+    "isekai-widgets-desc": "異世界ウィキで使用するカスタムウィジェットたち",
+
+    "isekai-createpage-page-title": "新しいページの名",
+    "isekai-createpage-create-page": "ページを新規作成",
+    "isekai-createpage-create-page-button": "作成",
+    "isekai-createpage-page-exists": "同じタイトルのページが既に存在します。変更してください。",
+    "isekai-createpage-title-empty": "おタイトルを入力してください",
+    "isekai-createpage-redirecting": "ジャンプしてお待ちください...",
+
+    "isekai-discover-langcode": "ja",
+    "isekai-discover-randompage": "おまかせ表示",
+    "isekai-discover-loading": "読み込み中...",
+	"isekai-discover-change-btn": "変える",
+    "isekai-discover-readmore-btn": "開く",
+    "isekai-discover-error-cannotload": "サーバからのページを読み取りに失敗しま。"
+}

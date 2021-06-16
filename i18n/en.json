@@ -1,0 +1,18 @@
+{
+    "isekai-widgets": "Isekai Widgets",
+    "isekai-widgets-desc": "Some custom widgets used on Isekai Wiki",
+
+    "isekai-createpage-page-title": "Title for new page",
+    "isekai-createpage-create-page": "Create page",
+    "isekai-createpage-create-page-button": "Create",
+    "isekai-createpage-page-exists": "A page with the same name already exists. Please use another name.",
+    "isekai-createpage-title-empty": "Please input title.",
+    "isekai-createpage-redirecting": "Redirecting, please wait...",
+
+    "isekai-discover-langcode": "en",
+	"isekai-discover-randompage": "Random Page",
+    "isekai-discover-loading": "Loading...",
+	"isekai-discover-change-btn": "Another",
+    "isekai-discover-readmore-btn": "Detail",
+    "isekai-discover-error-cannotload": "Cannot load page from server."
+}

@@ -1,0 +1,87 @@
+{
+	"name": "Isekai Discover Box",
+	"namemsg": "isekai-widgets",
+	"author": "Hyperzlib",
+	"version": "1.0.2",
+	"url": "https://github.com/Isekai-Project/mediawiki-extension-IsekaiWidgets",
+	"descriptionmsg": "isekai-widgets-desc",
+	"license-name": "GPL-2.0-or-later",
+	"type": "parserhook",
+	"MessagesDirs": {
+		"IsekaiWidgets": [
+			"i18n"
+		]
+	},
+	"AutoloadNamespaces": {
+		"Isekai\\Widgets\\": "includes"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": "Isekai\\Widgets\\Widgets::onParserSetup"
+	},
+	"ResourceModules": {
+		"ext.isekai.createPage": {
+			"scripts": [
+				"createPage/ext.isekai.createPage.js",
+				"createPage/ext.isekai.createPage.base.js"
+			],
+			"styles": [
+				"createPage/ext.isekai.createPage.base.less"
+			],
+			"dependencies": [
+				"oojs-ui-core"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"messages": [
+				"isekai-createpage-page-title",
+				"isekai-createpage-create-page-button",
+				"isekai-createpage-page-exists",
+				"isekai-createpage-title-empty",
+				"isekai-createpage-redirecting"
+			]
+        },
+        "ext.isekai.discover": {
+			"scripts": [
+				"discover/ext.isekai.discover.js",
+				"discover/ext.isekai.discover.base.js"
+			],
+			"styles": [
+				"discover/ext.isekai.discover.base.less"
+			],
+			"dependencies": [
+				"oojs",
+				"oojs-ui-core",
+				"oojs-ui.styles.icons-interactions"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"messages": [
+				"isekai-discover-change-btn",
+				"isekai-discover-readmore-btn",
+				"isekai-discover-error-cannotload"
+			]
+        },
+		"ext.isekai.tile": {
+			"scripts": [
+				"tile/tile.js"
+			],
+			"styles": [
+				"tile/tile.css",
+				"tile/style.less"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+        }
+    },
+    "ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "IsekaiWidgets/modules"
+	},
+	"manifest_version": 1
+}

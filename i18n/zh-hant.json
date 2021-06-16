@@ -1,0 +1,18 @@
+{
+    "isekai-widgets": "異世界百科 小部件",
+    "isekai-widgets-desc": "在異世界百科上使用的一些小部件",
+
+    "isekai-createpage-page-title": "頁面標題",
+    "isekai-createpage-create-page": "建立頁面",
+    "isekai-createpage-create-page-button": "創建",
+    "isekai-createpage-page-exists": "已有相同名字的頁面存在，換一個名字吧。",
+    "isekai-createpage-title-empty": "请填写标题",
+    "isekai-createpage-redirecting": "正在跳轉，請稍後……",
+
+    "isekai-discover-langcode": "zh",
+    "isekai-discover-randompage": "隨機頁面",
+    "isekai-discover-loading": "讀取中……",
+	"isekai-discover-change-btn": "換一個",
+    "isekai-discover-readmore-btn": "詳情",
+    "isekai-discover-error-cannotload": "無法從伺服器讀取數據"
+}

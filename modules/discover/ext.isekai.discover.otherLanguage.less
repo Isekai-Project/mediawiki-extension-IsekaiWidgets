@@ -1,0 +1,104 @@
+@height: 20em;
+@text-size: 0.85em;
+
+.discover-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: #fff;
+	background-clip: border-box;
+	border: 1px solid rgba(0,0,0,.125);
+	border-radius: .25rem;
+
+	.card-header {
+		padding: .75rem 1.25rem;
+		margin-bottom: 0;
+		background-color: rgba(0,0,0,.03);
+		border-bottom: 1px solid rgba(0,0,0,.125);
+		display: flex;
+		align-items: center;
+
+		&:first-child {
+			border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+		}
+
+		.card-header-text {
+			font-size: 1.25em;
+		}
+
+		.card-header-buttons {
+			margin-left: auto;
+		}
+
+		@media(max-width: 500px){
+			.card-header-text {
+				font-size: 1em;
+			}
+
+			.card-header-buttons {
+				font-size: 0.8em;
+			}
+		}
+
+		@media(max-width: 430px){
+			.card-header-text {
+				font-size: 1.25em;
+			}
+
+			.card-header-buttons {
+				margin-left: 0;
+				margin-top: 0.8em;
+				font-size: 1em;
+			}
+
+			& {
+				flex-direction: column;
+			}
+		}
+
+		@media(max-width: 350px){
+			.card-header-text {
+				font-size: 1em;
+			}
+
+			.card-header-buttons {
+				font-size: 0.8em;
+			}
+		}
+	}
+
+	.card-title {
+		margin: 1em 0 0.75em 1em;
+	}
+
+	.card-body {
+		flex: 1 1 auto;
+		padding: 0.25em;
+		font-size: 1.25em;
+
+		.loading {
+			width: 100%;
+			height: @height;
+			font-size: @text-size;
+			margin-top: 1px;
+			display: flex;
+	
+			.spinner {
+				margin: auto;
+				padding: 2em;
+				width: 100%;
+			}
+		}
+
+		.card-content {
+			height: @height;
+			overflow-y: auto;
+			border-top: 1px solid #ccc;
+			padding: 0 0.6em;
+			margin: 0 0.4em;
+			font-size: @text-size;
+		}
+	}	
+}
