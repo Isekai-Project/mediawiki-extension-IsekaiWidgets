@@ -1,8 +1,8 @@
 $(function(){
-    if($('.isekai-create-page-panel').length > 0){
-		var CreatePagePanel = isekai.CreatePagePanel;
-		$('.isekai-create-page-panel').each(function(){
-			new CreatePagePanel($(this));
+    if($('.isekai-create-page').length > 0){
+		var CreatePageWidget = isekai.ui.CreatePageWidget;
+		$('.isekai-create-page').each(function(){
+			new CreatePageWidget($(this));
 		});
 	}
 });

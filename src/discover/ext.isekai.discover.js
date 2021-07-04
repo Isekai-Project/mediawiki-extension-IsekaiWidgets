@@ -1,145 +1,145 @@
-class Discover {
-	constructor(dom){
-		this.baseDom = dom;
-		this.pageUrl = null;
-		this.api = new mw.Api();
-		
-		this.initDom();
-		this.refreshPage();
-	}
+const registerModule = require('../moduleRegister');
 
-	initDom(){
-		this.reloadButton = new OO.ui.ButtonWidget({
-			icon: 'reload',
-			label: mw.message('isekai-discover-change-btn').parse(),
-		});
-		this.reloadButton.on('click', this.refreshPage.bind(this));
-		
-		this.readMoreButton = new OO.ui.ButtonWidget({
-			icon: 'ellipsis',
-			label: mw.message('isekai-discover-readmore-btn').parse(),
-			flags: [
-				'primary',
-				'progressive'
-			]
-		});
-		this.readMoreButton.on('click', this.showMore.bind(this));
+class DiscoverWidget {
+    constructor(dom){
+        this.baseDom = dom;
+        this.pageUrl = null;
+        this.api = new mw.Api();
+        
+        this.initDom();
+        this.refreshPage();
+    }
 
-		this.loadingBar = new OO.ui.ProgressBarWidget({
-			progress: false,
-		});
-		this.baseDom.find('.card-body .loading .spinner').append(this.loadingBar.$element);
+    initDom(){
+        this.reloadButton = new OO.ui.ButtonWidget({
+            icon: 'reload',
+            label: mw.message('isekai-discover-change-btn').parse(),
+        });
+        this.reloadButton.on('click', this.refreshPage.bind(this));
+        
+        this.readMoreButton = new OO.ui.ButtonWidget({
+            icon: 'ellipsis',
+            label: mw.message('isekai-discover-readmore-btn').parse(),
+            flags: [
+                'primary',
+                'progressive'
+            ]
+        });
+        this.readMoreButton.on('click', this.showMore.bind(this));
 
-		this.buttonGroup = new OO.ui.ButtonGroupWidget({
-			items: [this.reloadButton, this.readMoreButton]
-		});
-		this.baseDom.find('.card-header .card-header-buttons').append(this.buttonGroup.$element);
-		this.loading = this.baseDom.find('.card-body .loading');
-		this.title = this.baseDom.find('.card-body .card-title');
-		this.contentContainer = this.baseDom.find('.card-body .card-content');
-	}
+        this.loadingBar = new OO.ui.ProgressBarWidget({
+            progress: false,
+        });
+        this.baseDom.find('.card-body .loading .spinner').append(this.loadingBar.$element);
 
-	showMore(){
-		if(this.pageUrl){ //页面存在就跳转
-			window.open(this.pageUrl);
-		}
-	}
+        this.buttonGroup = new OO.ui.ButtonGroupWidget({
+            items: [this.reloadButton, this.readMoreButton]
+        });
+        this.baseDom.find('.card-header .card-header-buttons').append(this.buttonGroup.$element);
+        this.loading = this.baseDom.find('.card-body .loading');
+        this.title = this.baseDom.find('.card-body .card-title');
+        this.contentContainer = this.baseDom.find('.card-body .card-content');
+    }
 
-	refreshPage(){
-		this.pageUrl = null;
-		this.clearContent();
-		this.showLoading();
-		this.getRandomPage().then((title) => {
-			this.loadPage(title);
-		});
-	}
+    showMore(){
+        if(this.pageUrl){ //页面存在就跳转
+            window.open(this.pageUrl);
+        }
+    }
 
-	setTitle(title){
-		this.title.text(title);
-	}
+    refreshPage(){
+        this.pageUrl = null;
+        this.clearContent();
+        this.showLoading();
+        this.getRandomPage().then((title) => {
+            this.loadPage(title);
+        });
+    }
 
-	showLoading(){
-		this.loading.show();
-		this.contentContainer.hide();
-	}
+    setTitle(title){
+        this.title.text(title);
+    }
 
-	hideLoading(){
-		this.loading.hide();
-		this.contentContainer.show();
-	}
+    showLoading(){
+        this.loading.show();
+        this.contentContainer.hide();
+    }
 
-	clearContent(){
-		this.contentContainer.children().remove();
-	}
+    hideLoading(){
+        this.loading.hide();
+        this.contentContainer.show();
+    }
 
-	setContent(dom){
-		this.hideLoading();
-		this.clearContent();
-		this.contentContainer.append(dom);
-	}
+    clearContent(){
+        this.contentContainer.children().remove();
+    }
 
-	showError(msg){
-		let errorMsg = new OO.ui.MessageWidget( {
-			type: 'error',
-			label: msg,
-		});
+    setContent(dom){
+        this.hideLoading();
+        this.clearContent();
+        this.contentContainer.append(dom);
+    }
 
-		this.setContent(errorMsg.$element);
-	}
+    showError(msg){
+        let errorMsg = new OO.ui.MessageWidget( {
+            type: 'error',
+            label: msg,
+        });
 
-	getRandomPage(){
-		return new Promise((resolve, reject) => {
-			this.api.get({
-				action: 'query',
-				list: 'random',
-				rnlimit: 1,
-				rnnamespace: 0,
-			}).done((data) => {
-				if(data.query && data.query.random && data.query.random.length > 0){
-					let title = data.query.random[0].title;
-					this.setTitle(title);
-					resolve(title);
-				} else if(data.error){
-					this.showError(data.error.info);
-				} else {
-					this.showError(mw.message('isekai-discover-error-cannotload').parse());
-				}
-			});
-		});
-	}
+        this.setContent(errorMsg.$element);
+    }
 
-	parseHTMLString(txt) {
-		try {
-			let parser = new DOMParser();
-			let xmlDoc = parser.parseFromString(txt, "text/html");
-			return xmlDoc;
-		} catch(e) {
-			console.error(e.message);
-		}
-		return null;
-	}
+    getRandomPage(){
+        return new Promise((resolve, reject) => {
+            this.api.get({
+                action: 'query',
+                list: 'random',
+                rnlimit: 1,
+                rnnamespace: 0,
+            }).done((data) => {
+                if(data.query && data.query.random && data.query.random.length > 0){
+                    let title = data.query.random[0].title;
+                    this.setTitle(title);
+                    resolve(title);
+                } else if(data.error){
+                    this.showError(data.error.info);
+                } else {
+                    this.showError(mw.message('isekai-discover-error-cannotload').parse());
+                }
+            });
+        });
+    }
 
-	loadPage(title){
-		let url = mw.util.getUrl(title);
-		this.pageUrl = url;
-		if(url.indexOf('?') >= 0){
-			url += '&';
-		} else {
-			url += '?'
-		}
-		url += 'action=render';
-		$.get(url, (str) => {
-			let dom = $(this.parseHTMLString(str));
-			let content = dom.find('.mw-parser-output');
-			if(content.length > 0){
-				//删除目录
-				content.find('.toc').remove();
-				this.setContent(content);
-			}
-		}, 'html');
-	}
+    parseHTMLString(txt) {
+        try {
+            let parser = new DOMParser();
+            let xmlDoc = parser.parseFromString(txt, "text/html");
+            return xmlDoc;
+        } catch(e) {
+            console.error(e.message);
+        }
+        return null;
+    }
+
+    loadPage(title){
+        let url = mw.util.getUrl(title);
+        this.pageUrl = url;
+        if(url.indexOf('?') >= 0){
+            url += '&';
+        } else {
+            url += '?'
+        }
+        url += 'action=render';
+        $.get(url, (str) => {
+            let dom = $(this.parseHTMLString(str));
+            let content = dom.find('.mw-parser-output');
+            if(content.length > 0){
+                //删除目录
+                content.find('.toc').remove();
+                this.setContent(content);
+            }
+        }, 'html');
+    }
 }
-if(!global.isekai){
-	global.isekai = {};
-}
-global.isekai.Discover = Discover;
+
+registerModule('ui.DiscoverWidget', DiscoverWidget);

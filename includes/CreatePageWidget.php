@@ -4,7 +4,7 @@ namespace Isekai\Widgets;
 class CreatePageWidget {
     public static function getHtml(){
         ob_start();
-        include(dirname(__DIR__) . '/modules/createPage/ext.isekai.createPageWidget.tpl');
+        include(dirname(__DIR__) . '/modules/createPage/ext.isekai.createPage.tpl');
         $template = ob_get_clean();
         return [$template, "markerType" => 'nowiki'];
     }

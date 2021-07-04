@@ -1,8 +1,8 @@
 $(function(){
     if($('.isekai-discover').length > 0){
-		var Discover = isekai.Discover;
+		var DiscoverWidget = isekai.ui.DiscoverWidget;
 		$('.isekai-discover').each(function(){
-			new Discover($(this));
+			new DiscoverWidget($(this));
 		});
 	}
 });

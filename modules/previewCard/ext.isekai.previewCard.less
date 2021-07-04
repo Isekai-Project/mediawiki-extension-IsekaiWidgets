@@ -1,0 +1,119 @@
+@text-size: 1em;
+
+.isekai-preview-card-wrapper {
+    padding: .5rem;
+    width: 100%;
+
+    @media (min-width: 768px) {
+        width: 50%;
+    }
+
+	@media (min-width: 992px) {
+        width: 33.3333%;
+    }
+}
+
+.isekai-preview-card {
+	word-wrap: break-word;
+	background-color: #fff;
+	background-clip: border-box;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+	transform: scale(1);
+	transition: box-shadow 0.25s cubic-bezier(.4,0,.2,1), transform 0.15s cubic-bezier(.4,0,.2,1);
+    will-change: box-shadow, transform;
+	border-radius: 2px;
+	cursor: pointer;
+
+    .card-header {
+		margin-bottom: 0;
+		display: flex;
+		align-items: center;
+		position: relative;
+
+		.card-header-title {
+			padding: 1rem 1.2rem;
+
+			.card-header-title-text {
+				font-weight: bold;
+				font-size: 1.4rem;
+				line-height: 2.2rem;
+			}
+
+			.card-header-subtitle-text {
+				font-size: 0.8rem;
+				line-height: 1.6rem;
+				opacity: 0.7;
+			}
+		}
+
+		.card-header-buttons {
+			margin-left: auto;
+		}
+	}
+
+    .card-body {
+		flex: 1 1 auto;
+
+		.card-content {
+			padding: 0rem 1rem 1.5rem;
+			font-size: @text-size;
+			line-height: 1.6em;
+		}
+
+		.loading {
+			text-align: center;
+			padding: 2rem;
+
+			.loader {
+				animation: isekai-spin 1s infinite linear;
+			}
+		}
+	}
+
+	&.card-media {
+		.card-header {
+			.card-header-title {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				color: #fff;
+				background: rgba(0,0,0,.2);
+				padding: 1.4rem 1rem 1rem 1rem;
+			}
+
+			.card-img {
+				max-height: 15rem;
+				width: 100%;
+				height: auto;
+				object-fit: cover;
+			}
+		}
+
+		.card-body {
+			.card-content {
+				padding: 1rem 1rem 1.2rem;
+			}
+		}
+	}
+
+	&.mousedown {
+		transform: scale(0.98);
+	}
+
+	&:hover {
+		box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+	}
+}
+
+@keyframes isekai-spin {
+	0% {
+	  -webkit-transform: rotate(0deg);
+			  transform: rotate(0deg);
+	}
+	100% {
+	  -webkit-transform: rotate(359deg);
+			  transform: rotate(359deg);
+	}
+  }
+  
