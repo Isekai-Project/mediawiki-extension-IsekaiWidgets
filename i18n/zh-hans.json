@@ -14,5 +14,14 @@
     "isekai-discover-loading": "加载中……",
 	"isekai-discover-change-btn": "换一个",
     "isekai-discover-readmore-btn": "查看",
-    "isekai-discover-error-cannotload": "无法从服务器加载数据"
+    "isekai-discover-error-cannotload": "无法从服务器加载数据",
+
+    "isekai-fontface-error-invalid-params": "请提供src和name参数。",
+    "isekai-fontface-error-font-name-invalid": "字体名中不能包含特殊字符。",
+    "isekai-fontface-error-font-not-exists": "字体文件 \"$1\" 不存在。",
+    "isekai-fontface-error-font-already-defined": "字体 \"$1\" 已引用，请检查重复引用。",
+    
+    "isekai-font-error-invalid-params": "请提供name参数。",
+    "isekai-font-error-font-name-invalid": "字体名中不能包含特殊字符。",
+    "isekai-font-error-font-not-imported": "未导入字体: \"$1\"。"
 }

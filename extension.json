@@ -19,6 +19,11 @@
         "ParserFirstCallInit": "Isekai\\Widgets\\Widgets::onParserSetup"
     },
     "ResourceModules": {
+        "ext.isekai.widgets.global": {
+            "styles": [
+                "ext.isekai.alert.less"
+            ]
+        },
         "ext.isekai.createPage": {
             "scripts": [
                 "createPage/ext.isekai.createPage.js",

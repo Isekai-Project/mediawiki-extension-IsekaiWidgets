@@ -14,5 +14,14 @@
     "isekai-discover-loading": "Loading...",
 	"isekai-discover-change-btn": "Another",
     "isekai-discover-readmore-btn": "Detail",
-    "isekai-discover-error-cannotload": "Cannot load page from server."
+    "isekai-discover-error-cannotload": "Cannot load page from server.",
+
+    "isekai-fontface-error-invalid-params": "Please specify src and name attributes.",
+    "isekai-fontface-error-font-name-invalid": "Font name cannot contain special characters.",
+    "isekai-fontface-error-font-not-exists": "Font file \"$1\" not exists.",
+    "isekai-fontface-error-font-already-defined": "Font \"$1\" already imported, please check.",
+    
+    "isekai-font-error-invalid-params": "Please specify name attributes.",
+    "isekai-font-error-font-name-invalid": "Font name cannot contain special characters.",
+    "isekai-font-error-font-not-imported": "Font \"$1\" not imported."
 }
