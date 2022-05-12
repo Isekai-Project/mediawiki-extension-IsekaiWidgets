@@ -31,6 +31,10 @@ isekai.tile.init = function () {
 };
 
 (function($){
+    function rand(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
     var Utils = {
         isValue: function(val){
             return val !== undefined && val !== null && val !== "";
@@ -585,7 +589,7 @@ isekai.tile.init = function () {
                 var temp = this.images.slice();
     
                 for(var i = 0; i < 5; i++) {
-                    var rnd_index = $.random(0, temp.length - 1);
+                    var rnd_index = rand(0, temp.length - 1);
                     var div = $("<div>").addClass("img -js-img-"+i).css("background-image", "url("+temp[rnd_index].src+")");
                     element.prepend(div);
                     temp.splice(rnd_index, 1);
@@ -596,12 +600,12 @@ isekai.tile.init = function () {
                 $.setInterval(function(){
                     var temp = that.images.slice();
                     var colors = Colors.colors(Colors.PALETTES.ALL), bg;
-                    bg = colors[$.random(0, colors.length - 1)];
+                    bg = colors[rand(0, colors.length - 1)];
     
                     element.css("background-color", bg);
     
                     for(var i = 0; i < a.length; i++) {
-                        var rnd_index = $.random(0, temp.length - 1);
+                        var rnd_index = rand(0, temp.length - 1);
                         var div = element.find(".-js-img-"+a[i]);
                         switchImage(div, temp[rnd_index].src, i);
                         temp.splice(rnd_index, 1);

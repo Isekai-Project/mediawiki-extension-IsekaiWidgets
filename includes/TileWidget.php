@@ -2,6 +2,7 @@
 namespace Isekai\Widgets;
 
 use Html;
+use MediaWiki\MediaWikiServices;
 use Title;
 
 class TileWidget {
@@ -11,28 +12,36 @@ class TileWidget {
     private $href = '';
     private $badge = false;
     private $color = false;
+    private $cover = false;
     private $images = [];
     private $grid = false;
 
     private $attributes = [];
 
-    public function __construct($args){
+    public function __construct($args, $content){
+        $this->content = $content;
         $this->parseArgs($args);
     }
 
     public static function create(string $text, array $args, \Parser $parser, \PPFrame $frame){
         $parser->getOutput()->addModules('ext.isekai.tile');
 
-        if($text){
-            $args['title'] = $text;
+        $content = '';
+        if ($text) {
+            $content = $frame->expand($text);
+
+            $title = preg_replace('/\[\[.*?\]\]/', '', $content);
+            $title = preg_replace('/<img .*?src="(?<src>.*?)".*?srcset="(?<srcset>.*?)"[^\>]+>/', '', $title);
+            $title = strip_tags(trim($title));
+            $args['title'] = $title;
         }
 
-        $tile = new TileWidget($args);
+        $tile = new TileWidget($args, $content);
         return [$tile->toHtml(), 'markerType' => 'nowiki'];
     }
 
     private function parseArgs($args){
-        $allowedArgs = ['size', 'icon', 'title', 'badge', 'color', 'href', 'grid'];
+        $allowedArgs = ['size', 'icon', 'title', 'cover', 'badge', 'color', 'href', 'grid'];
 
         foreach($args as $name => $arg){
             if(in_array($name, $allowedArgs)){
@@ -66,6 +75,10 @@ class TileWidget {
             ], $this->title);
             $element['data-title'] = $this->title;
         }
+    }
+
+    private function getCoverArgs(array &$element, array &$content){
+        $element['data-cover'] = $this->cover;
     }
 
     private function getHrefArgs(array &$element, array &$content){
@@ -117,6 +130,27 @@ class TileWidget {
     }
 
     private function getImagesArgs(array &$element, array &$content){
+        /*$service = MediaWikiServices::getInstance();
+        $this->images = [];
+        // 提取wikitext图片
+        preg_match_all('/\[\[(?<title>.+?:.+?)(\|.*?)?\]\]/', $this->content, $matches);
+        if (isset($matches['title']) && !empty($matches['title'])) {
+            foreach ($matches['title'] as $titleText) {
+                $title = Title::newFromText($titleText);
+                if ($title->inNamespace(NS_FILE)) {
+                    $file = $service->getRepoGroup()->findFile($title);
+                    $thumb = $file->getUrl();
+                    $this->images[] = $thumb;
+                }
+            }
+        }
+
+        // 提取html图片
+        preg_match_all('/<img .*?src="(?<src>.*?)".*?srcset="(?<srcset>.*?)"[^\>]+>/', $this->content, $matches);
+        if (isset($matches['src']) && !empty($matches['src'])) {
+            $this->images = array_merge($this->images, $matches['src']);
+        }*/
+
         if(!empty($this->images)){
             $element['data-effect'] = 'image-set';
             foreach($this->images as $image){
@@ -158,6 +192,7 @@ class TileWidget {
         $this->getColorArgs($element, $content);
         $this->getIconArgs($element, $content);
         $this->getTitleArgs($element, $content);
+        $this->getCoverArgs($element, $content);
         $this->getHrefArgs($element, $content);
         $this->getBadgeArgs($element, $content);
         $this->getImagesArgs($element, $content);
