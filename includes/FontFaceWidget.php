@@ -11,7 +11,7 @@ class FontFaceWidget {
      * @param \Parser $parser
      * @param \PPFrame $frame
      */
-    public static function create($text, $params, $parser, $frame){
+    public static function create($text, $params, $parser, $frame) {
         if (!isset($params['src']) || !isset($params['name']) ||
                 empty($params['src']) || empty($params['name'])) {
             return '<span class="error">' . wfMessage('isekai-fontface-error-invalid-params')->parse() . '</span>';
@@ -42,8 +42,8 @@ class FontFaceWidget {
 
         $fontUrl = $file->getUrl();
         $fontId = substr(Utils::safeBase64Encode(md5($fontName, true)), 0, 8);
-        $css = "<style>@font-face{src: url('{$fontUrl}');font-family:'{$fontName}'}" .
-            ".isekai-extra-font.font-{$fontId}{font-family:'{$fontName}'}</style>";
+        $css = "<span><style>@font-face{src: url('{$fontUrl}');font-family:'{$fontName}'}" .
+            ".isekai-extra-font.font-{$fontId}{font-family:'{$fontName}'}</style></span>";
 
         $existsFonts[$fontName] = $fontId;
         $existsFonts = $parser->extIsekaiWidgetsCache->set('extraFonts', $existsFonts);

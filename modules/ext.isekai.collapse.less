@@ -1,0 +1,64 @@
+.isekai-collapse {
+    width: 50%;
+    background: #fff;
+    margin-bottom: .5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-radius: 5px;
+    overflow: hidden;
+
+    @media screen and (max-width: 767px) {
+        width: 100%;
+    }
+
+    &.animate {
+        overflow-y: hidden;
+        will-change: height;
+        transition: height 250ms ease-in-out;
+    }
+
+    .isekai-collapse-title {
+        padding: 1rem;
+        display: block;
+        background-color: #f7f7f7;
+        padding-left: 2.2rem;
+        position: relative;
+        cursor: pointer;
+        color: black;
+        font-size: 1rem;
+
+        &::before {
+            content: '';
+            border-width: 0.4rem;
+            border-style: solid;
+            border-color: transparent transparent transparent #000;
+            position: absolute;
+            top: 1.32rem;
+            left: 1.2rem;
+            transform: rotate(0);
+            transform-origin: 0.2rem 50%;
+            will-change: transform;
+            transition: transform 250ms ease;
+        }
+
+        &::-webkit-details-marker {
+            transform: rotate(90deg);
+        }
+    }
+
+    .isekai-collapse-content {
+        padding: 1em;
+    }
+
+    &[open] > .isekai-collapse-title:before {
+        transform: rotate(90deg);
+    }
+
+    &.closing[open] > .isekai-collapse-title:before {
+        transform: rotate(0);
+    }
+}
+
+.isekai-indent > .isekai-collapse {
+    padding-left: 0;
+    margin-left: 8px;
+}

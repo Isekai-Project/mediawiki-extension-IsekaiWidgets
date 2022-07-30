@@ -519,7 +519,7 @@ isekai.tile.init = function () {
     
         this._createTile = function(){
             function switchImage(el, img_src, i){
-                $.setTimeout(function(){
+                setTimeout(function(){
                     el.fadeOut(500, function(){
                         el.css("background-image", "url(" + img_src + ")");
                         el.fadeIn();
@@ -582,7 +582,11 @@ isekai.tile.init = function () {
                 element.addClass("image-set");
     
                 $.each(element.children("img"), function(){
-                    that.images.push(this);
+                    var imgElem = document.createElement('img');
+                    imgElem.src = this.src;
+                    imgElem.srcset = this.srcset;
+                    imgElem.alt = this.alt;
+                    that.images.push(imgElem);
                     $(this).remove();
                 });
     
@@ -592,12 +596,14 @@ isekai.tile.init = function () {
                     var rnd_index = rand(0, temp.length - 1);
                     var div = $("<div>").addClass("img -js-img-"+i).css("background-image", "url("+temp[rnd_index].src+")");
                     element.prepend(div);
-                    temp.splice(rnd_index, 1);
+                    if (temp.length > 1) {
+                        temp.splice(rnd_index, 1);
+                    }
                 }
     
                 var a = [0, 1, 4, 3, 2];
     
-                $.setInterval(function(){
+                setInterval(function(){
                     var temp = that.images.slice();
                     var colors = Colors.colors(Colors.PALETTES.ALL), bg;
                     bg = colors[rand(0, colors.length - 1)];
@@ -608,7 +614,9 @@ isekai.tile.init = function () {
                         var rnd_index = rand(0, temp.length - 1);
                         var div = element.find(".-js-img-"+a[i]);
                         switchImage(div, temp[rnd_index].src, i);
-                        temp.splice(rnd_index, 1);
+                        if (temp.length > 1) {
+                            temp.splice(rnd_index, 1);
+                        }
                     }
     
                     a = a.reverse();
@@ -619,7 +627,7 @@ isekai.tile.init = function () {
         this._runEffects = function(){
             var o = this.options;
     
-            if (this.effectInterval === false) this.effectInterval = $.setInterval(function(){
+            if (this.effectInterval === false) this.effectInterval = setInterval(function(){
                 var current, next;
     
                 current = $(this.slides[this.currentSlide]);
@@ -641,7 +649,7 @@ isekai.tile.init = function () {
         };
     
         this._stopEffects = function(){
-            $.clearInterval(this.effectInterval);
+            clearInterval(this.effectInterval);
             this.effectInterval = false;
         };
 
