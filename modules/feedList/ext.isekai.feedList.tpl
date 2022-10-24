@@ -12,7 +12,7 @@
                 </div>
             </div>
             <ul v-else class="isekai-list">
-                <a class="isekai-list-item" v-for="(feedItem, index) in feedList" :key="index" :href="feedItem.url">
+                <a class="isekai-list-item" v-for="(feedItem, index) in feedList" :key="index" :href="feedItem.url" target="_blank">
                     <div class="isekai-list-item-content">
                         <div class="isekai-list-item-title">{{ feedItem.title }}</div>
                         <div class="isekai-list-item-text">{{ feedItem.description }}</div>

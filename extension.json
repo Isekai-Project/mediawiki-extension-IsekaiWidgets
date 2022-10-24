@@ -2,13 +2,13 @@
     "name": "Isekai Discover Box",
     "namemsg": "isekai-widgets",
     "author": "Hyperzlib",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "url": "https://github.com/Isekai-Project/mediawiki-extension-IsekaiWidgets",
     "descriptionmsg": "isekai-widgets-desc",
     "license-name": "GPL-2.0-or-later",
     "type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.34.0"
+		"MediaWiki": ">= 1.35.0"
 	},
     "MessagesDirs": {
         "IsekaiWidgets": [
@@ -28,7 +28,7 @@
     "ResourceModules": {
         "ext.isekai.widgets.global": {
             "styles": [
-                "ext.isekai.alert.less"
+                "ext.isekai.widgets.global.less"
             ]
         },
         "ext.isekai.createPage": {
@@ -55,6 +55,23 @@
             ]
         },
         "ext.isekai.discover": {
+            "scripts": [
+                "feedList/ext.isekai.feedList.js"
+            ],
+            "styles": [
+                "feedList/ext.isekai.feedList.less"
+            ],
+            "dependencies": [
+                "oojs",
+                "oojs-ui-core",
+                "vue"
+            ],
+            "targets": [
+                "desktop",
+                "mobile"
+            ]
+        },
+        "ext.isekai.feedList": {
             "scripts": [
                 "discover/ext.isekai.discover.js",
                 "discover/ext.isekai.discover.base.js"
