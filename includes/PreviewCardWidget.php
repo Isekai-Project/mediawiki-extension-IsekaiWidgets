@@ -5,7 +5,7 @@ class PreviewCardWidget {
     public static function getHtml($variables){
         extract($variables);
         ob_start();
-        include(dirname(__DIR__) . '/modules/previewCard/ext.isekai.previewCard.html');
+        include(dirname(__DIR__) . '/modules/previewCard/ext.isekai.previewCard.tpl');
         $template = ob_get_clean();
         return [$template, "markerType" => 'nowiki'];
     }

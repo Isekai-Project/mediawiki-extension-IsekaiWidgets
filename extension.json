@@ -7,21 +7,28 @@
     "descriptionmsg": "isekai-widgets-desc",
     "license-name": "GPL-2.0-or-later",
     "type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.34.0"
+	},
     "MessagesDirs": {
         "IsekaiWidgets": [
             "i18n"
         ]
     },
+	"ExtensionMessagesFiles": {
+		"IsekaiWidgetsMagic": "IsekaiWidgets.i18n.php"
+	},
     "AutoloadNamespaces": {
         "Isekai\\Widgets\\": "includes"
     },
     "Hooks": {
-        "ParserFirstCallInit": "Isekai\\Widgets\\Widgets::onParserSetup"
+        "ParserFirstCallInit": "Isekai\\Widgets\\Widgets::onParserSetup",
+		"BeforePageDisplay": "Isekai\\Widgets\\Widgets::onLoad"
     },
     "ResourceModules": {
         "ext.isekai.widgets.global": {
             "styles": [
-                "ext.isekai.alert.less"
+                "ext.isekai.widgets.global.less"
             ]
         },
         "ext.isekai.createPage": {
@@ -70,6 +77,25 @@
                 "isekai-discover-error-cannotload"
             ]
         },
+        "ext.isekai.feedList": {
+            "es6": true,
+            "scripts": [
+                "feedList/ext.isekai.feedList.js"
+            ],
+            "styles": [
+                "feedList/ext.isekai.feedList.less"
+            ],
+            "dependencies": [
+                "vue"
+            ],
+            "targets": [
+                "desktop",
+                "mobile"
+            ],
+            "messages": [
+                
+            ]
+        },
         "ext.isekai.previewCard": {
             "scripts": [
                 "previewCard/ext.isekai.previewCard.js"
@@ -97,11 +123,33 @@
                 "desktop",
                 "mobile"
             ]
+        },
+        "ext.isekai.collapse": {
+            "scripts": [
+                "ext.isekai.collapse.js"
+            ],
+            "styles": [
+                "ext.isekai.collapse.less"
+            ],
+            "targets": [
+                "desktop",
+                "mobile"
+            ]
         }
     },
     "ResourceFileModulePaths": {
         "localBasePath": "modules",
         "remoteExtPath": "IsekaiWidgets/modules"
     },
-    "manifest_version": 1
+    "attributes": {
+		"CodeMirror": {
+			"TagModes": {
+				"tilegroup": "text/mediawiki",
+                "exfont": "text/mediawiki",
+				"details": "text/mediawiki",
+				"summary": "text/mediawiki"
+			}
+		}
+    },
+    "manifest_version": 2
 }

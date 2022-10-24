@@ -16,6 +16,8 @@
     "isekai-discover-readmore-btn": "查看",
     "isekai-discover-error-cannotload": "无法从服务器加载数据",
 
+    "isekai-feed-list-title": "最近更新",
+
     "isekai-fontface-error-invalid-params": "请提供src和name参数。",
     "isekai-fontface-error-font-name-invalid": "字体名中不能包含特殊字符。",
     "isekai-fontface-error-font-not-exists": "字体文件 \"$1\" 不存在。",

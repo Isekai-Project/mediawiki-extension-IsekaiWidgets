@@ -130,7 +130,7 @@ class TileWidget {
     }
 
     private function getImagesArgs(array &$element, array &$content){
-        /*$service = MediaWikiServices::getInstance();
+        $service = MediaWikiServices::getInstance();
         $this->images = [];
         // 提取wikitext图片
         preg_match_all('/\[\[(?<title>.+?:.+?)(\|.*?)?\]\]/', $this->content, $matches);
@@ -149,13 +149,14 @@ class TileWidget {
         preg_match_all('/<img .*?src="(?<src>.*?)".*?srcset="(?<srcset>.*?)"[^\>]+>/', $this->content, $matches);
         if (isset($matches['src']) && !empty($matches['src'])) {
             $this->images = array_merge($this->images, $matches['src']);
-        }*/
+        }
 
         if(!empty($this->images)){
             $element['data-effect'] = 'image-set';
             foreach($this->images as $image){
                 $content[] = Html::element('img', [
                     'src' => $image,
+                    'style' => 'display: none'
                 ]);
             }
         }

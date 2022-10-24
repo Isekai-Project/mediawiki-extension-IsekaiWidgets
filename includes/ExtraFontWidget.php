@@ -7,7 +7,7 @@ class ExtraFontWidget {
     public static function create($text, $params, $parser, $frame){
         $existsFonts = $parser->extIsekaiWidgetsCache->get('extraFonts', INF, []);
 
-        $content = $text = $frame->expand($text);
+        $content = $text = $parser->recursiveTagParse($text, $frame);
         if (!isset($params['name']) || empty($params['name'])) {
             return '<span class="error">' . wfMessage('isekai-font-error-invalid-params')->parse() . '</span>' . $content;
         }
