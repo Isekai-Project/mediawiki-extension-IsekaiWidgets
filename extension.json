@@ -28,7 +28,7 @@
     "ResourceModules": {
         "ext.isekai.widgets.global": {
             "styles": [
-                "ext.isekai.widgets.global.less"
+                "ext.isekai.alert.less"
             ]
         },
         "ext.isekai.createPage": {
@@ -75,25 +75,6 @@
                 "isekai-discover-change-btn",
                 "isekai-discover-readmore-btn",
                 "isekai-discover-error-cannotload"
-            ]
-        },
-        "ext.isekai.feedList": {
-            "es6": true,
-            "scripts": [
-                "feedList/ext.isekai.feedList.js"
-            ],
-            "styles": [
-                "feedList/ext.isekai.feedList.less"
-            ],
-            "dependencies": [
-                "vue"
-            ],
-            "targets": [
-                "desktop",
-                "mobile"
-            ],
-            "messages": [
-                
             ]
         },
         "ext.isekai.previewCard": {
