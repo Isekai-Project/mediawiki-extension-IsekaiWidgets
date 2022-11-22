@@ -9,8 +9,8 @@ class CreatePageWidget {
         return [$template, "markerType" => 'nowiki'];
     }
     
-    public static function create($text, $params, $parser, $frame){
-        $parser->getOutput()->addModules('ext.isekai.createPage');
+    public static function create($text, $params, \Parser $parser, \PPFrame $frame){
+        $parser->getOutput()->addModules(['ext.isekai.createPage']);
 
         return self::getHtml();
     }

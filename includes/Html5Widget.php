@@ -5,7 +5,7 @@ use Html;
 
 class Html5Widget {
     public static function createDetails(string $text, array $args, \Parser $parser, \PPFrame $frame) {
-        $parser->getOutput()->addModules('ext.isekai.collapse');
+        $parser->getOutput()->addModules(['ext.isekai.collapse']);
         $allowedAttr = ['class'];
         $htmlArgs = array_filter($args, function($k) use($allowedAttr) {
             return in_array($k, $allowedAttr);

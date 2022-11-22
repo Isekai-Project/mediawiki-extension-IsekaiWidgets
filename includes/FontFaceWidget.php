@@ -10,10 +10,10 @@ class FontFaceWidget {
      * @param array $params
      * @param \Parser $parser
      * @param \PPFrame $frame
+     * @return string|string[]
      */
-    public static function create($text, $params, $parser, $frame) {
-        if (!isset($params['src']) || !isset($params['name']) ||
-                empty($params['src']) || empty($params['name'])) {
+    public static function create($text, $params, \Parser $parser, \PPFrame $frame) {
+        if (empty($params['src']) || empty($params['name'])) {
             return '<span class="error">' . wfMessage('isekai-fontface-error-invalid-params')->parse() . '</span>';
         }
 

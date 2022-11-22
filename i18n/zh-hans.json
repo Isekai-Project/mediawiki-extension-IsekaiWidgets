@@ -25,5 +25,7 @@
     
     "isekai-font-error-invalid-params": "请提供name参数。",
     "isekai-font-error-font-name-invalid": "字体名中不能包含特殊字符。",
-    "isekai-font-error-font-not-imported": "未导入字体: \"$1\"。"
+    "isekai-font-error-font-not-imported": "未导入字体: \"$1\"。",
+
+    "isekai-information-error-invalid-type": "提供的信息框类型错误"
 }

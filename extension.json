@@ -1,5 +1,5 @@
 {
-    "name": "Isekai Discover Box",
+    "name": "Isekai Widgets",
     "namemsg": "isekai-widgets",
     "author": "Hyperzlib",
     "version": "1.0.3",
@@ -29,6 +29,10 @@
         "ext.isekai.widgets.global": {
             "styles": [
                 "ext.isekai.widgets.global.less"
+            ],
+            "targets": [
+                "desktop",
+                "mobile"
             ]
         },
         "ext.isekai.createPage": {
@@ -56,23 +60,6 @@
         },
         "ext.isekai.discover": {
             "scripts": [
-                "feedList/ext.isekai.feedList.js"
-            ],
-            "styles": [
-                "feedList/ext.isekai.feedList.less"
-            ],
-            "dependencies": [
-                "oojs",
-                "oojs-ui-core",
-                "vue"
-            ],
-            "targets": [
-                "desktop",
-                "mobile"
-            ]
-        },
-        "ext.isekai.feedList": {
-            "scripts": [
                 "discover/ext.isekai.discover.js",
                 "discover/ext.isekai.discover.base.js"
             ],
@@ -92,6 +79,24 @@
                 "isekai-discover-change-btn",
                 "isekai-discover-readmore-btn",
                 "isekai-discover-error-cannotload"
+            ]
+        },
+        "ext.isekai.feedList": {
+            "scripts": [
+                "feedList/ext.isekai.feedList.js"
+            ],
+            "styles": [
+                "feedList/ext.isekai.feedList.less"
+            ],
+            "dependencies": [
+                "oojs",
+                "oojs-ui-core",
+				"oojs-ui.styles.icons-movement",
+                "vue"
+            ],
+            "targets": [
+                "desktop",
+                "mobile"
             ]
         },
         "ext.isekai.previewCard": {
@@ -148,6 +153,11 @@
 				"summary": "text/mediawiki"
 			}
 		}
+    },
+    "config": {
+        "IsekaiWidgetInformationTextSeparator": {
+            "value": ": "
+        }
     },
     "manifest_version": 2
 }

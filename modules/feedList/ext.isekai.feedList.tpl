@@ -17,6 +17,9 @@
                         <div class="isekai-list-item-title">{{ feedItem.title }}</div>
                         <div class="isekai-list-item-text">{{ feedItem.description }}</div>
                     </div>
+                    <div class="isekai-list-item-icon">
+                        <span class="oo-ui-widget oo-ui-widget-enabled oo-ui-iconElement oo-ui-iconElement-icon oo-ui-image-progressive oo-ui-icon-next oo-ui-labelElement-invisible oo-ui-iconWidget" aria-disabled="false"></span>
+                    </div>
                 </a>
             </ul>
         </div>

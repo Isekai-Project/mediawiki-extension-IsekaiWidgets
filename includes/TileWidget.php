@@ -24,7 +24,7 @@ class TileWidget {
     }
 
     public static function create(string $text, array $args, \Parser $parser, \PPFrame $frame){
-        $parser->getOutput()->addModules('ext.isekai.tile');
+        $parser->getOutput()->addModules(['ext.isekai.tile']);
 
         $content = '';
         if ($text) {

@@ -7,6 +7,8 @@ use Parser;
 class Widgets {
     /**
      * @param \Parser $parser
+     * @return bool
+     * @throws \MWException
      */
     public static function onParserSetup(&$parser){
         $parser->extIsekaiWidgetsCache = new MapCacheLRU( 100 ); // 100 is arbitrary
@@ -29,7 +31,9 @@ class Widgets {
     }
 
     public static function onLoad(\OutputPage $outputPage) {
-        $outputPage->addModuleStyles("ext.isekai.widgets.global");
-        $outputPage->addModuleStyles("ext.isekai.collapse");
+        $outputPage->addModuleStyles([
+            "ext.isekai.widgets.global",
+            "ext.isekai.collapse"
+        ]);
     }
 }

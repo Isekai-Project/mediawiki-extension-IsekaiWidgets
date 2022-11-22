@@ -4,11 +4,11 @@ namespace Isekai\Widgets;
 use Html;
 
 class ExtraFontWidget {
-    public static function create($text, $params, $parser, $frame){
+    public static function create($text, $params, \Parser $parser, \PPFrame $frame){
         $existsFonts = $parser->extIsekaiWidgetsCache->get('extraFonts', INF, []);
 
         $content = $text = $parser->recursiveTagParse($text, $frame);
-        if (!isset($params['name']) || empty($params['name'])) {
+        if (empty($params['name'])) {
             return '<span class="error">' . wfMessage('isekai-font-error-invalid-params')->parse() . '</span>' . $content;
         }
 

@@ -9,8 +9,8 @@ class FeedListWidget {
         return [$template, "markerType" => 'nowiki'];
     }
     
-    public static function create($text, $params, \Parser $parser, $frame){
-        $parser->getOutput()->addModules('ext.isekai.feedList');
+    public static function create($text, $params, \Parser $parser, \PPFrame $frame){
+        $parser->getOutput()->addModules(['ext.isekai.feedList']);
         
         return self::getHtml();
     }
