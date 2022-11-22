@@ -27,6 +27,8 @@ class Widgets {
         $parser->setHook('details', [Html5Widget::class, 'createDetails']);
         $parser->setHook('summary', [Html5Widget::class, 'createSummary']);
 
+        $parser->setFunctionHook('information', [InformationWidget::class, 'create'], SFH_OBJECT_ARGS);
+
         return true;
     }
 

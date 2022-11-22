@@ -76,14 +76,14 @@ class InformationWidget {
         foreach ($dataMap as $information) {
             if ($information['type'] === 'pair') {
                 $stringBuilder[] = $information['label'] . $sep .
-                    Utils::makeParagraph($parser->recursiveTagParse($information['text'], $frame), false, true);
+                    Utils::makeParagraph($information['text'], false, true);
             }
         }
         return [implode('', $stringBuilder), 'markerType' => 'nowiki'];
     }
 
     public static function buildTable(\Parser $parser, \PPFrame $frame, array $dataMap, $title, $picture, $float) {
-        
+
     }
 
     /**
