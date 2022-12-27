@@ -27,7 +27,7 @@ class Widgets {
         $parser->setHook('details', [Html5Widget::class, 'createDetails']);
         $parser->setHook('summary', [Html5Widget::class, 'createSummary']);
 
-        $parser->setFunctionHook('information', [InformationWidget::class, 'create'], SFH_OBJECT_ARGS);
+        $parser->setHook('information', [InformationWidget::class, 'create']);
 
         return true;
     }
@@ -35,6 +35,7 @@ class Widgets {
     public static function onLoad(\OutputPage $outputPage) {
         $outputPage->addModuleStyles([
             "ext.isekai.widgets.global",
+            "ext.isekai.information.infobox",
             "ext.isekai.collapse"
         ]);
     }

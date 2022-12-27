@@ -25,5 +25,6 @@
     "isekai-font-error-font-name-invalid": "字體名中不能包含特殊字元。",
     "isekai-font-error-font-not-imported": "未導入字體: \"$1\"。",
 
+    "isekai-information-title-base-information": "基本資料",
     "isekai-information-error-invalid-type": "提供的信息框類型錯誤"
 }

@@ -24,6 +24,6 @@
     "isekai-font-error-invalid-params": "Please specify name attributes.",
     "isekai-font-error-font-name-invalid": "Font name cannot contain special characters.",
     "isekai-font-error-font-not-imported": "Font \"$1\" not imported.",
-
+    "isekai-information-title-base-information": "Base Data",
     "isekai-information-error-invalid-type": "Information \"type\" unsupported."
 }

@@ -99,6 +99,15 @@
                 "mobile"
             ]
         },
+        "ext.isekai.information.infobox": {
+            "styles": [
+                "information/ext.isekai.information.infobox.less"
+            ],
+            "targets": [
+                "desktop",
+                "mobile"
+            ]
+        },
         "ext.isekai.previewCard": {
             "scripts": [
                 "previewCard/ext.isekai.previewCard.js"

@@ -1,0 +1,52 @@
+.infobox {
+    @media (max-width: 767px) {
+        width: 100%;
+    }
+    
+    @media (min-width: 768px) {
+        &.infobox-float-left {
+            float: left;
+        }
+        &.infobox-float-right {
+            float: right;
+        }
+    }
+
+    .infobox-title {
+        color: #fff;
+        background-color: #404244;
+
+        ruby {
+            display: inline-flex;
+            flex-direction: column-reverse;
+        }
+        
+        rb, rt {
+            display: inline;
+            line-height: 1;
+        }
+    }
+
+    .infobox-picture {
+        text-align: center;
+        
+        img {
+            max-width: 100%;
+            max-height: 350px;
+        }
+    }
+
+    .infobox-banner {
+        text-align: center;
+        color: #000;
+        font-weight: bold;
+        background-color: #eaecf0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .infobox-banner {
+            color: #fff;
+            background-color: #202122;
+        }
+    }
+}
