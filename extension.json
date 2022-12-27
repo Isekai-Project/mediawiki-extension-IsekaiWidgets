@@ -82,12 +82,14 @@
             ]
         },
         "ext.isekai.feedList": {
-            "scripts": [
-                "feedList/ext.isekai.feedList.js"
-            ],
             "styles": [
                 "feedList/ext.isekai.feedList.less"
             ],
+            "packageFiles": [
+                { "name": "isekaiFeedList", "file": "feedList/ext.isekai.feedList.js", "main": true },
+                { "name": "FeedList.vue", "file": "feedList/FeedList.vue" }
+            ],
+            "es6": true,
             "dependencies": [
                 "oojs",
                 "oojs-ui-core",
