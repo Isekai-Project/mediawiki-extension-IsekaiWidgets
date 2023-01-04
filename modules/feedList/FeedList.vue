@@ -71,7 +71,6 @@ module.exports = {
                         // 设置data
                         feedList.value = recentList;
                         loading.value = false;
-                        console.log('feedList', feedList);
                     }
                 });
             }
