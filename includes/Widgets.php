@@ -17,6 +17,7 @@ class Widgets {
         $parser->setHook('discoverbox', [DiscoverWidget::class, 'create']);
         $parser->setHook('feedlist', [FeedListWidget::class, 'create']);
         $parser->setHook('previewcard', [PreviewCardWidget::class, 'create']);
+        $parser->setHook('buttonlink', [ButtonLinkWidget::class, 'create']);
         
         $parser->setHook('tile', [TileWidget::class, 'create']);
         $parser->setHook('tilegroup', [TileGroupWidget::class, 'create']);

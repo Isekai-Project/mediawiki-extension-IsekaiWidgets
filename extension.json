@@ -91,7 +91,6 @@
             ],
             "es6": true,
             "dependencies": [
-                "oojs",
                 "oojs-ui-core",
 				"oojs-ui.styles.icons-movement",
                 "vue"
@@ -144,6 +143,18 @@
             ],
             "styles": [
                 "ext.isekai.collapse.less"
+            ],
+            "targets": [
+                "desktop",
+                "mobile"
+            ]
+        },
+        "ext.isekai.buttonLink": {
+            "scripts": [
+                "buttonLink/ext.isekai.buttonLink.js"
+            ],
+            "dependencies": [
+                "oojs-ui-core"
             ],
             "targets": [
                 "desktop",
