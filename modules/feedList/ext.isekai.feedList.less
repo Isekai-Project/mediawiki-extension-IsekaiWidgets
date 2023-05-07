@@ -1,14 +1,14 @@
-@feed-list-height: 24rem;
+@feed-list-height: 23.8rem;
 @feed-list-height-mobile: 70vh;
 
 .isekai-feed-list-card > .card-header {
-    height: 2.25rem;
+    height: 2.2rem;
 }
 
 .isekai-feed-list {
     margin: 0;
     height: @feed-list-height;
-    overflow-y: auto;
+    overflow-y: overlay;
     display: none;
 
     &.mounted {
@@ -84,6 +84,20 @@
             }
         }
     }
+
+    .isekai-list-item-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 1.5rem;
+
+        .tag {
+            opacity: 0.6;
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    }
     
     .isekai-list-item-content {
         -webkit-box-flex: 1;
@@ -109,5 +123,29 @@
         overflow: hidden;
         text-overflow: ellipsis;
         -webkit-box-orient: vertical;
+    }
+}
+
+.skin-citizen-dark, .skin-timeless-dark {
+    .isekai-list {
+        a {
+            color: white;
+            text-decoration: none;
+    
+            &:hover {
+                color: white;
+                text-decoration: none;
+            }
+    
+            &:visited {
+                color: white;
+                text-decoration: none;
+    
+                &:hover {
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+        }
     }
 }

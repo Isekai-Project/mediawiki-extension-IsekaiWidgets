@@ -1,3 +1,40 @@
+@isekai-card-border-radius: 10px;
+
+.isekai-thin-scrollbar {
+	scrollbar-width: thin;
+
+	&::-webkit-scrollbar {
+        width: 8px;
+		height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 0;
+        background: #cdcdcd;
+
+        &:hover {
+            background: #a6a6a6;
+        }
+
+        &:active {
+            background: #606060;
+        }
+    }
+
+    &::-webkit-scrollbar-track {
+        border-radius: 0;
+		background: transparent;
+
+		&:hover {
+        	background: #f0f0f0;
+		}
+    }
+}
+
+.isekai-thin-scrollbar-overlap {
+
+}
+
 .isekai-card {
 	position: relative;
 	display: flex;
@@ -6,24 +43,33 @@
 	word-wrap: break-word;
 	background-color: #fff;
 	background-clip: border-box;
-	border: 1px solid rgba(0,0,0,.125);
-	border-radius: .25rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 -1px 4px -1px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(53,72,91,.07);
+    border-radius: @isekai-card-border-radius;
+    margin-bottom: .5rem;
+	overflow: hidden;
 
 	.card-header {
-		padding: .75rem 1.25rem;
+		padding: 0.75rem 1.25rem;
 		margin-bottom: 0;
-		background-color: rgba(0,0,0,.03);
-		border-bottom: 1px solid rgba(0,0,0,.125);
+        background-color: #f7f7f7;
+		color: black;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		
+		border-top-left-radius: @isekai-card-border-radius;
+		border-top-right-radius: @isekai-card-border-radius;
 
-		&:first-child {
-			border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
-		}
+		box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1);
 
 		.card-header-text {
 			font-size: 1.25rem;
+		}
+
+		@media(max-width: 360px){
+			.card-header-text {
+				font-size: 1em;
+			}
 		}
 
 		.card-header-extra {
@@ -32,7 +78,7 @@
 	}
 
 	.card-title {
-		margin: 1rem 0 0.75rem 1rem;
+		margin: 0.75rem 0 0.75rem 1rem;
 	}
 
 	.card-body {
@@ -45,9 +91,32 @@
 		padding: 0;
 	}
 
-    @media(max-width: 360px){
+    @media(max-width: 360px) {
         .card-header-text {
             font-size: 1rem;
         }
     }
+}
+
+.isekai-well {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 -1px 4px -1px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(53,72,91,.07);
+    border-radius: 5px;
+    margin-bottom: .5rem;
+    background-color: #fcfcfc;
+    padding: 0.5em 1em;
+}
+
+.skin-citizen-dark, .skin-timeless-dark {
+	.isekai-well {
+		background-color: #090909;
+	}
+
+	.isekai-card {
+		background-color: #000;
+
+		.card-header {
+			background-color: #090909;
+			color: white;
+		}
+	}
 }
