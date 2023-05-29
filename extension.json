@@ -126,10 +126,10 @@
         },
         "ext.isekai.tile": {
             "scripts": [
-                "tile/tile.js"
+                "tile/ext.isekai.tile.js"
             ],
             "styles": [
-                "tile/tile.css",
+                "tile/ext.isekai.tile.css",
                 "tile/style.less"
             ],
             "targets": [
@@ -172,7 +172,8 @@
 				"tilegroup": "text/mediawiki",
                 "exfont": "text/mediawiki",
 				"details": "text/mediawiki",
-				"summary": "text/mediawiki"
+				"summary": "text/mediawiki",
+                "veval": "text/mediawiki"
 			}
 		}
     },

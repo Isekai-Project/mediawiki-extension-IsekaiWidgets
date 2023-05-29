@@ -2,7 +2,7 @@
 namespace Isekai\Widgets;
 
 class PreviewCardWidget {
-    public static function getHtml($variables){
+    public static function getHtml($variables) {
         extract($variables);
         ob_start();
         include(dirname(__DIR__) . '/modules/previewCard/ext.isekai.previewCard.tpl');

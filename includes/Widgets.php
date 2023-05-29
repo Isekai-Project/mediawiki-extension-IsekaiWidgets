@@ -10,7 +10,7 @@ class Widgets {
      * @return bool
      * @throws \MWException
      */
-    public static function onParserSetup(&$parser){
+    public static function onParserSetup(&$parser) {
         $parser->extIsekaiWidgetsCache = new MapCacheLRU( 100 ); // 100 is arbitrary
 
         $parser->setHook('createpage', [CreatePageWidget::class, 'create']);
@@ -29,6 +29,8 @@ class Widgets {
         $parser->setHook('summary', [Html5Widget::class, 'createSummary']);
 
         $parser->setHook('information', [InformationWidget::class, 'create']);
+
+        $parser->setHook('veval', [VEvalWidget::class, 'create']);
 
         return true;
     }

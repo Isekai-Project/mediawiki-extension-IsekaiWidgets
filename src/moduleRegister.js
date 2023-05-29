@@ -1,4 +1,4 @@
-function register(namespace, func) {
+export function registerModule(namespace, func) {
     let nsList = namespace.split('.');
 
     if(!('isekai' in window)){
@@ -15,5 +15,3 @@ function register(namespace, func) {
     }
     obj[nsList[i]] = func;
 }
-
-module.exports = register;

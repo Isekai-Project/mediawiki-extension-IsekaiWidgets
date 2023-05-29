@@ -9,20 +9,22 @@
     "watch": "webpack --watch"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "@babel/preset-env": "^7.14.5",
-    "autoprefixer": "^10.2.6",
-    "babel-loader": "^8.2.2",
-    "css-loader": "^5.2.6",
-    "mini-css-extract-plugin": "^1.6.0",
-    "postcss": "^8.3.5",
-    "postcss-loader": "^6.1.0",
-    "prettier": "^2.3.1",
-    "sass": "^1.35.1",
-    "sass-loader": "^12.1.0",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
+    "less": "^4.1.3",
+    "less-loader": "^11.1.0",
+    "mini-css-extract-plugin": "^2.7.5",
+    "postcss": "^8.4.23",
+    "postcss-loader": "^7.3.0",
+    "prettier": "^2.8.8",
+    "sass": "^1.62.1",
+    "sass-loader": "^12.6.0",
     "style-loader": "^2.0.0",
-    "webpack": "^5.39.0",
-    "webpack-cli": "^4.7.2"
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.1.1"
   },
   "dependencies": {
     "masonry-layout": "^4.2.2"

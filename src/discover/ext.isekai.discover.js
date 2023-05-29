@@ -1,4 +1,4 @@
-const registerModule = require('../moduleRegister');
+import { registerModule } from '../moduleRegister';
 
 class DiscoverWidget {
     constructor(dom){

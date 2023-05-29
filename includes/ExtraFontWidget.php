@@ -1,10 +1,11 @@
 <?php
+
 namespace Isekai\Widgets;
 
 use Html;
 
 class ExtraFontWidget {
-    public static function create($text, $params, \Parser $parser, \PPFrame $frame){
+    public static function create($text, $params, \Parser $parser, \PPFrame $frame) {
         $existsFonts = $parser->extIsekaiWidgetsCache->get('extraFonts', INF, []);
 
         $content = $text = $parser->recursiveTagParse($text, $frame);

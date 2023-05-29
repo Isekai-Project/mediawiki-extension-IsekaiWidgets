@@ -8,14 +8,17 @@ const stylesHandler = MiniCssExtractPlugin.loader;
 const config = {
 	entry: {
 		'createPage': './src/createPage/ext.isekai.createPage.js',
-		'discover': './src/discover/ext.isekai.discover.js'
+		'discover': './src/discover/ext.isekai.discover.js',
+        'tile': './src/tile/ext.isekai.tile.js',
 	},
     output: {
 		filename: '[name]/ext.isekai.[name].js',
 		path: path.resolve(__dirname, 'modules')
     },
     plugins: [
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: '[name]/ext.isekai.[name].css',
+        }),
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
     ],
@@ -28,6 +31,10 @@ const config = {
             {
                 test: /\.s[ac]ss$/i,
                 use: [stylesHandler, 'css-loader', 'postcss-loader', 'sass-loader'],
+            },
+            {
+                test: /\.less$/i,
+                use: [stylesHandler, 'css-loader', 'postcss-loader', 'less-loader'],
             },
             {
                 test: /\.css$/i,
